@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Профиль Али</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .profile {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .profile {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode h1 {
+      color: #ff5555;
+    }
+
+    p {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+
+    body.dark-mode p {
+      background-color: #ff5555;
+      color: #000;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn, .theme-btn {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .lang-btn:hover, .theme-btn:hover {
+      background-color: #0056b3;
+    }
+
+    body.dark-mode .lang-btn, body.dark-mode .theme-btn {
+      background-color: #444;
+    }
+
+    body.dark-mode .lang-btn:hover, body.dark-mode .theme-btn:hover {
+      background-color: #666;
+    }
+
+    .image-container {
+      margin-top: 20px;
+    }
+
+    .funny-img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .funny-img:hover {
+      transform: scale(1.05);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .social-links a:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    body.dark-mode .social-links a {
+      background-color: #444;
+    }
+
+    body.dark-mode .social-links a:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile">
+    <h1 id="greeting">Привет, меня зовут Али!</h1>
+    <p id="class">Я учусь в 10А классе.</p>
+    <div class="info">
+      <p id="hobby">Люблю программировать и создавать что-то новое.</p>
+      <p id="interests">Мои интересы: HTML, CSS, JavaScript и многое другое!</p>
+    </div>
+
+    <!-- Картинка -->
+    <div class="image-container">
+      <img src="funny.jpg" alt="funny owl and dog" class="funny-img" />
+    </div>
+
+    <!-- Ссылки на соцсети -->
+    <div class="social-links">
+      <a href="https://www.google.com" target="_blank">Google</a>
+      <a href="https://www.youtube.com" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <!-- Кнопки -->
+  <div class="btn-group">
+    <button class="lang-btn" onclick="toggleLanguage()">EN / RU</button>
+    <button class="theme-btn" onclick="toggleTheme()">Сменить тему</button>
+  </div>
+
+  <script>
+    let currentLang = 'ru';
+
+    const translations = {
+      ru: {
+        greeting: 'Привет, меня зовут Али!',
+        class: 'Я учусь в 10А классе.',
+        hobby: 'Люблю программировать и создавать что-то новое.',
+        interests: 'Мои интересы: HTML, CSS, JavaScript и многое другое!'
+      },
+      en: {
+        greeting: 'Hi, my name is Ali!',
+        class: 'I study in class 10A.',
+        hobby: 'I love programming and creating new things.',
+        interests: 'My interests: HTML, CSS, JavaScript, and much more!'
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+
+      document.getElementById('greeting').textContent = translations[currentLang].greeting;
+      document.getElementById('class').textContent = translations[currentLang].class;
+      document.getElementById('hobby').textContent = translations[currentLang].hobby;
+      document.getElementById('interests').textContent = translations[currentLang].interests;
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
