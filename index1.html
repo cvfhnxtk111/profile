@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль Али</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+        }
+
+        h1 {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+
+        p {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .lang-btn {
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lang-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <h1 id="greeting">Привет, меня зовут Али!</h1>
+        <p id="class">Я учусь в 10А классе.</p>
+        <div class="info">
+            <p id="hobby">Люблю программировать и создавать что-то новое.</p>
+            <p id="interests">Мои интересы: HTML, CSS, JavaScript и многое другое!</p>
+        </div>
+    </div>
+
+    <button class="lang-btn" onclick="toggleLanguage()">EN / RU</button>
+
+    <script>
+        let currentLang = 'ru';
+
+        const translations = {
+            ru: {
+                greeting: 'Привет, меня зовут Али!',
+                class: 'Я учусь в 10А классе.',
+                hobby: 'Люблю программировать и создавать что-то новое.',
+                interests: 'Мои интересы: HTML, CSS, JavaScript и многое другое!'
+            },
+            en: {
+                greeting: 'Hi, my name is Ali!',
+                class: 'I study in class 10A.',
+                hobby: 'I love programming and creating new things.',
+                interests: 'My interests: HTML, CSS, JavaScript, and much more!'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ru' ? 'en' : 'ru';
+
+            document.getElementById('greeting').textContent = translations[currentLang].greeting;
+            document.getElementById('class').textContent = translations[currentLang].class;
+            document.getElementById('hobby').textContent = translations[currentLang].hobby;
+            document.getElementById('interests').textContent = translations[currentLang].interests;
+        }
+    </script>
+</body>
+</html>
