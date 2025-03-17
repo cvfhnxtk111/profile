@@ -30,7 +30,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 300px;
+            max-width: 400px;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -94,6 +94,22 @@
         body.dark-mode .lang-btn:hover, body.dark-mode .theme-btn:hover {
             background-color: #666;
         }
+
+        .image-container {
+            margin-top: 20px;
+        }
+
+        .funny-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .funny-img:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -104,6 +120,10 @@
         <div class="info">
             <p id="hobby">Люблю программировать и создавать что-то новое.</p>
             <p id="interests">Мои интересы: HTML, CSS, JavaScript и многое другое!</p>
+        </div>
+
+        <div class="image-container">
+            <img src="funny.jpg" alt="funny owl and dog" class="funny-img">
         </div>
     </div>
 
